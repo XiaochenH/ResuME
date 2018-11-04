@@ -8,6 +8,9 @@ from User import *
 from BearFounders import *
 from AngelList import *
 
+# https://xiaochenhan@resumeapp.scm.azurewebsites.net/resuMeApp.git
+# resumeapp.azurewebsites.net
+
 app = Flask(__name__)
 
 #####################
