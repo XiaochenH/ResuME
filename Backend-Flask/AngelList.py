@@ -141,7 +141,7 @@ class AngelListModifier:
         self.driver = webdriver.Chrome()
         self.driver.get("https://angel.co/login")
         self.login(self.username, self.password)
-        self.driver.get("https://angel.co/chaoqun-tao")
+        self.driver.find_element_by_xpath("//a[@title='View Profile']").click()
         actions = ActionChains(self.driver)
         actions.pause(0.5)
         actions.perform()

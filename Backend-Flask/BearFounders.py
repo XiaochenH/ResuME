@@ -51,14 +51,7 @@ class BearFounderModifier:
         self.delete_field(actions)
         actions.send_keys(self.profile['courses'])
         actions.send_keys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB)
-        if self.profile["experiences"] and self.profile["experiences"].links:
-            actions.send_keys(self.profile["experiences"].links.personalWeb, Keys.TAB)
-            actions.send_keys(self.profile["experiences"].links.linkedin, Keys.TAB)
-            actions.send_keys(self.profile["experiences"].links.github, Keys.TAB)
-            actions.send_keys(Keys.TAB)
-            actions.send_keys(self.profile["experiences"].links.stackOverflow)
-        else:
-            actions.send_keys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB)
+        actions.send_keys(Keys.TAB, Keys.TAB, Keys.TAB, Keys.TAB)
 
         for _ in range(7):
             actions.send_keys(Keys.TAB)

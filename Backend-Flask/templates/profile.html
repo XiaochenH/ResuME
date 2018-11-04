@@ -1,43 +1,220 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- ResuME icons and page title -->
-    <title>ResuME Profile</title>
-    <!-- <link rel="icon" size="104*86" href="images/icon.png">
-    <link rel="stylesheet" type="text/css" href="style.css"> -->
-  <head>
-  <body>
-    <form method="POST" action='/profile' accept-charset="UTF-8">
-      <dl>
-        <dt>{{ form.first_name.label }}
-        <dd>{{ form.first_name }}
-        <dt>{{ form.last_name.label }}
-        <dd>{{ form.last_name }}
-        <dt>{{ form.major.label }}
-        <dd>{{ form.major }}
-        <dt>{{ form.ethnicity.label }}
-        <dd>{{ form.ethnicity }}
-        <dt>{{ form.description.label }}
-        <dd>{{ form.description }}
-        <dt>{{ form.address.label }}
-        <dd>{{ form.address }}
-        <dt>{{ form.summary.label }}
-        <dd>{{ form.summary }}
-        <dt>{{ form.bfemail.label }}
-        <dd>{{ form.bfemail }}
-        <dt>{{ form.bfpassword.label }}
-        <dd>{{ form.bfpassword }}
-        <dt>{{ form.alemail.label }}
-        <dd>{{ form.alemail }}
-        <dt>{{ form.alpassword.label }}
-        <dd>{{ form.alpassword }}
-        <dt>{{ form.educations.label }}
-        <dd>{{ form.educations }}
-        <dt>{{ form.experiences.label }}
-        <dd>{{ form.experiences }}
-        <dt>{{ form.projects.label }}
-        <dd>{{ form.projects }}
-        <dt>{{ form.submit }}
-      </dl>
-    </form>
-  </body>
+<head>
+  <title>Profile</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.header {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #0000FF;
+  color: white;
+}
+        
+#navbar a.active1 {
+  background-color: #FF0000;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+</style>
+
+<!--===============================================================================================-->
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename="images/icons/mark.png")}}"/>
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="vendor/bootstrap/css/bootstrap.min.css")}}" />
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="fonts/font-awesome-4.7.0/css/font-awesome.min.css")}}"/>
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="fonts/iconic/css/material-design-iconic-font.min.css")}}"/>
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="vendor/animate/animate.css")}}">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="vendor/css-hamburgers/hamburgers.min.css")}}">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="vendor/animsition/css/animsition.min.css")}}">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="vendor/select2/select2.min.css")}}">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="vendor/daterangepicker/daterangepicker.css")}}">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="css/util.css")}}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="css/main.css")}}">
+<!--===============================================================================================-->
+</head>
+
+<body>
+<div id="navbar">
+  <a class="active" href="javascript:void(0)">Home</a>
+  <a href="javascript:void(0)">Export Resume</a>
+<a href="javascript:void(0)">PDF Parse</a>
+  <a href="javascript:void(0)">Contact</a>
+<a class = "active1" href="login" style="float:right">Sign Out</a>
+</div>
+    
+    <div class = "content">
+    
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <form class="login100-form validate-form" method="POST" action='/profile' accept-charset="UTF-8">
+          <span class="login100-form-title p-b-48">
+            <img src="{{ url_for('static', filename="images/icons/icon.png")}}" style="width:250px;height:100px;">
+          </span>
+            
+          <div class="wrap-input100 validate-input">
+              <dt>{{ form.first_name.label }}
+              <dd>{{ form.first_name(size=72) }}
+          </div>
+
+          <div class="wrap-input100 validate-input">
+              <dt>{{ form.last_name.label }}
+              <dd>{{ form.last_name(size=72) }}
+          </div>
+          
+          <div class="wrap-input100 validate-input">
+              <dt>{{ form.major.label }}
+              <dd>{{ form.major(size=72) }}
+          </div>
+
+          <div class="wrap-input100 validate-input">
+              <dt>{{ form.ethnicity.label }}
+              <dd>{{ form.ethnicity(size=72) }}
+          </div>
+
+          <div class="wrap-input100 validate-input">
+              <dt>{{ form.description.label }}
+              <dd>{{ form.description(size=72) }}
+          </div>
+
+          <div class="wrap-input100 validate-input">
+              <dt>{{ form.address.label }}
+              <dd>{{ form.address(size=72) }}
+          </div>
+
+          <div class="wrap-input100 validate-input">
+              <dt>{{ form.summary.label }}
+              <dd>{{ form.summary(size=72) }}
+          </div>
+
+          <div class="wrap-input100 validate-input">
+              <dt>{{ form.bfemail.label }}
+              <dd>{{ form.bfemail(size=72) }}
+          </div>
+
+          <div class="wrap-input100 validate-input">
+              <dt>{{ form.bfpassword.label }}
+              <dd>{{ form.bfpassword(size=72) }}
+          </div>
+
+          <div class="wrap-input100 validate-input">
+              <dt>{{ form.alemail.label }}
+              <dd>{{ form.alemail(size=72) }}
+          </div>
+
+          <div class="wrap-input100 validate-input">
+              <dt>{{ form.alpassword.label }}
+              <dd>{{ form.alpassword(size=72) }}
+          </div>
+
+          <div class="wrap-input100 validate-input">
+              <dt>{{ form.educations.label }}
+              <dd>{{ form.educations(size=72) }}
+          </div>
+            
+          <div class="wrap-input100 validate-input">
+              <dt>{{ form.experiences.label }}
+              <dd>{{ form.experiences(size=72) }}
+          </div>
+
+          <div class="wrap-input100 validate-input">
+              <dt>{{ form.projects.label }}
+              <dd>{{ form.projects(size=72) }}
+          </div>
+
+          <div class="container-login100-form-btn">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+              <button class="login100-form-btn">
+                 <dt>{{ form.submit }}</dt>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+       
+</div>
+
+  <div id="dropDownSelect1"></div>
+    
+    <script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+<!--===============================================================================================-->
+  <script src="{{ url_for('static', filename="vendor/jquery/jquery-3.2.1.min.js")}}"></script>
+<!--===============================================================================================-->
+  <script src="{{ url_for('static', filename="vendor/animsition/js/animsition.min.js")}}"></script>
+<!--===============================================================================================-->
+  <script src="{{ url_for('static', filename="vendor/bootstrap/js/bootstrap.min.js")}}"></script>
+<!--===============================================================================================-->
+  <script src="{{ url_for('static', filename="vendor/select2/select2.min.js")}}"></script>
+<!--===============================================================================================-->
+  <script src="{{ url_for('static', filename="vendor/daterangepicker/moment.min.js")}}"></script>
+  <script src="{{ url_for('static', filename="vendor/daterangepicker/daterangepicker.js")}}"></script>
+<!--===============================================================================================-->
+  <script src="{{ url_for('static', filename="vendor/countdowntime/countdowntime.js")}}"></script>
+<!--===============================================================================================-->
+  <script src="{{ url_for('static', filename="js/main.js")}}"></script>
+</body>
 </html>

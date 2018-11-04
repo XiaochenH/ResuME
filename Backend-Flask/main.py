@@ -1,11 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 from flask_pymongo import PyMongo
 from flask_wtf import FlaskForm
-<<<<<<< HEAD
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, FieldList, FormField, TextAreaField, DateField, SelectField
-=======
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, FieldList, FormField, TextAreaField
->>>>>>> 535391975e110a61c08bb05a505b5de443576502
 from wtforms.validators import DataRequired, ValidationError
 import datetime
 from User import *
@@ -63,8 +59,8 @@ class ExperienceEntryForm(FlaskForm):
     end_date = StringField("End Date", render_kw={'placeholder': '06/21/2018 for June 21, 2018'})
     links = StringField('Links', render_kw={'placeholder': 'links to showcase your experience'})
     workhere = SelectField('Currently Work Here', choices=[('yes', 'yes'), ('no', 'no')])
-    description = TextAreaField('Description', render_kw={'placeholder': 'experience description'})
-    summary = TextAreaField('Summary', render_kw={'placeholder': 'summarize the experience'})
+    description = StringField('Description', render_kw={'placeholder': 'experience description'})
+    summary = StringField('Summary', render_kw={'placeholder': 'summarize the experience'})
 
 class ProjectEntryForm(FlaskForm):
     title = StringField('Title', render_kw={'placeholder': 'project title'})
@@ -74,17 +70,17 @@ class ProjectEntryForm(FlaskForm):
     end_date = StringField("End Date", render_kw={'placeholder': '06/21/2018 for June 21, 2018'})
     links = StringField('Links', render_kw={'placeholder': 'links to showcase your project'})
     workhere = SelectField('Currently Working', choices=[('yes', 'yes'), ('no', 'no')])
-    description = TextAreaField('Description', render_kw={'placeholder': 'project description'})
-    summary = TextAreaField('Summary', render_kw={'placeholder': 'summarize the project'})
+    description = StringField('Description', render_kw={'placeholder': 'project description'})
+    summary = StringField('Summary', render_kw={'placeholder': 'summarize the project'})
 
 class ProfileForm(FlaskForm):
     first_name = StringField('First Name', render_kw={'placeholder': 'first name'}, validators=[DataRequired()])
     last_name = StringField('Last Name', render_kw={'placeholder': 'last name'}, validators=[DataRequired()])
     major = StringField('Major', render_kw={'placeholder': 'your major'}, validators=[DataRequired()])
     ethnicity = StringField('Ethnicity', render_kw={'placeholder': 'your ethnicity, optional'})
-    description = TextAreaField('Description', render_kw={'placeholder': 'describe yourself'}, validators=[DataRequired()])
+    description = StringField('Description', render_kw={'placeholder': 'describe yourself'}, validators=[DataRequired()])
     address = StringField('Address', render_kw={'placeholder': 'your current address'})
-    summary = TextAreaField('Summary', render_kw={'placeholder': 'summarize your profile'})
+    summary = StringField('Summary', render_kw={'placeholder': 'summarize your profile'})
     bfemail = StringField('BearFounders Email', render_kw={'placeholder': 'BearFounders email'}, validators=[DataRequired()])
     bfpassword = PasswordField('BearFounders Password', render_kw={'placeholder': 'BearFounders password'}, validators=[DataRequired()])
     alemail = StringField('AngelList Email', render_kw={'placeholder': 'AngelList email'}, validators=[DataRequired()])
